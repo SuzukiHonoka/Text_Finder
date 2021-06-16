@@ -38,10 +38,3 @@ func Split(path string) []string {
 	}
 	return content
 }
-
-func DerefString(s *string) string {
-	if s != nil {
-		return *s
-	}
-	return ""
-}

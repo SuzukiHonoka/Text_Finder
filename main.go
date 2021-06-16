@@ -25,7 +25,7 @@ func main() {
 	limit := flag.Int("l", 3, "overview limit for single match")
 	flag.Parse()
 	var matched []string
-	scanned := Walk(DerefString(root))
+	scanned := Walk(*root)
 	var list []string
 	for _, s := range scanned {
 		for _, t := range strings.Split(*matchType, ",") {
