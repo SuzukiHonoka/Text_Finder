@@ -17,4 +17,4 @@ Usage of Text_Finder.exe:
 ```
 
 ## Requirement
-The colored output only works on bash env which means you may only see the correct output on the well-prepared output env.
+The colored output only works on ANSI supported env which means you may only see the correct output on the well-prepared env.
