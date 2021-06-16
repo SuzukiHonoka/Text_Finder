@@ -28,10 +28,12 @@ func main() {
 	scanned := Walk(*root)
 	var list []string
 	for _, s := range scanned {
-		for _, t := range strings.Split(*matchType, ",") {
-			if strings.Contains(filepath.Ext(s), t) {
-				list = append(list, s)
-				break
+		if ext := filepath.Ext(s); len(ext) > 0 {
+			for _, t := range strings.Split(*matchType, ",") {
+				if ext[1:] == t {
+					list = append(list, s)
+					break
+				}
 			}
 		}
 	}
@@ -55,9 +57,8 @@ OUTER:
 						continue OUTER
 					}
 					if strings.Contains(vv, vvv) {
+						related = append(related, vv)
 						if !*reserve {
-							match = true
-							related = append(related, vv)
 							fmt.Print(colorCyan, "--------------------------------", "\n")
 							if *verbose {
 								fmt.Print(colorCyan, "Path: ", v, "\n")
@@ -101,6 +102,7 @@ OUTER:
 			}
 			relist = append(relist, l)
 		}
+		fmt.Println("T", len(matched), "R", len(relist))
 		for _, rf := range relist {
 			fmt.Println(colorPurple + rf)
 		}
