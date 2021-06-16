@@ -78,7 +78,7 @@ OUTER:
 							tmp = append(tmp, colorWhite)
 							tmp = append(tmp, before)
 							tmp = append(tmp, colorRed)
-							tmp = append(tmp, *key)
+							tmp = append(tmp, vvv)
 							tmp = append(tmp, colorWhite)
 							tmp = append(tmp, after)
 							fmt.Print(strings.Join(tmp, "") + "\n")
