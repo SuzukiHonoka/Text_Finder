@@ -28,6 +28,10 @@ func main() {
 	scanned := Walk(*root)
 	var list []string
 	for _, s := range scanned {
+		if strings.Contains(*matchType, "*") {
+			list = scanned
+			break
+		}
 		if ext := filepath.Ext(s); len(ext) > 0 {
 			for _, t := range strings.Split(*matchType, ",") {
 				if ext[1:] == t {
